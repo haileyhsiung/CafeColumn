@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Column</title>
+    <link rel="icon" type="image/x-icon" href="image/logobrown.ico">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="#"><img src="image/logotran2.png" class="resize-logo" alt="Blog Logo"></a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#menu">favorite cafes</a>
+            <a href="#review">reviews</a>
+        </nav>
+        <a href="#book" class="btn">blog a cafe</a>
+    </header>
+
+    <!-- HOME -->
+    <section class="home" id="home">
+        <div class="row">
+            <div class="content">
+                <h3>For all you cafe hoppers</h3>
+                <a href="#review" class="btn">Recent Reviews</a>
+            </div>
+            <div class="image">
+                <img src="image/logofreetran.png" class="main-home-image" alt="">
+            </div>
+        </div>
+
+        <div class="image-slider">
+            <img src="image/home-img-1.png" alt="">
+            <img src="image/home-img-2.png" alt="">
+            <img src="image/home-img-3.png" alt="">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <h1 class="heading">about us <span>Why Should You Trust Our Blog?</span></h1>
+        <div class="row">
+            <div class="image">
+                <img src="image/hailey_shams.png" alt="">
+            </div>
+            <div class="content">
+                <h3 class="title">What is Cafe Column?</h3>
+                <p>We are a blog started by two college students who share a deep love for cafes, coffee, and the beautiful moments they create. Our journey began over countless cups of coffee shared during long, sleepless nights in college, where we found that the best memories were made in the cozy corners of our favorite cafes. At Cafe Column, we dive into the full experience of every cafe we visit, judging them on more than just their menu—because a good cafe is about the vibe, the ambiance, and the welcoming feel just as much as it’s about the perfect cup of coffee. Join us as we sip, savor, and celebrate the wonderful world of cafes, sharing our adventures and inspiring you to discover your own favorite spots.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAVORITE COFFEES (Your Hardcoded Section) -->
+    <section class="menu" id="menu">
+        <h1 class="heading">Coffee <span>Favorite Coffees</span></h1>
+
+        <div class="box-container">
+            <a href="#" class="box">
+                <img src="image/menu-1.png" alt="">
+                <div class="content">
+                    <h3>Efe's Cafe</h3>
+                    <p>Iced White Chocolate Mocha</p>
+                    <span>$5.50</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="image/menu-2.png" alt="">
+                <div class="content">
+                    <h3>Penstock Coffee</h3>
+                    <p>Coldbrew with oatmilk and caramel syrup</p>
+                    <span>$7.00</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="image/menu-3.png" alt="">
+                <div class="content">
+                    <h3>Hidden Grounds</h3>
+                    <p>Iced Lavender Honey Latte</p>
+                    <span>$6.50</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="image/menu-4.png" alt="">
+                <div class="content">
+                    <h3>Ayala Coffee</h3>
+                    <p>Iced Cassava Latte</p>
+                    <span>$7.25</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="image/menu-5.png" alt="">
+                <div class="content">
+                    <h3>Friend's Cafe</h3>
+                    <p>Coldbrew with oatmilk and vanilla</p>
+                    <span>$4.50</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="image/menu-6.png" alt="">
+                <div class="content">
+                    <h3>Tatte Bakery and Cafe</h3>
+                    <p>Iced Pistachio Latte</p>
+                    <span>$6.50</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- REVIEW -->
+    <section class="review" id="review">
+        <h1 class="heading">reviews <span>what people say</span></h1>
+        <div class="swiper review-slider">
+            <div class="swiper-wrapper">
+                <!-- Reviews will be loaded here dynamically -->
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- BOOK -->
+    <section class="book" id="book">
+        <section class="contact">
+            <h1 class="heading">Blogging <span>review a cafe</span></h1>
+            <form id="reviewForm">
+                <input type="text" id="reviewerName" placeholder="Name" class="box" required>
+                <input type="text" id="cafeName" placeholder="Cafe Name" class="box" required>
+                <input type="file" id="reviewImage" name="image" accept="image/*" class="box" required>
+                <textarea id="reviewContent" placeholder="Review" class="box" cols="30" rows="10" required></textarea>
+                <select id="reviewRating" class="box" required>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+                <input type="submit" value="Submit Review" class="btn">
+            </form>
+        </section>
+    </section>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
