@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function appendReview(review) {
         const starsHTML = Array.from({ length: review.reviewRating }, () => '<i class="fas fa-star"></i>').join('');
         const reviewHTML = `
-            <div class="swiper-slide box">
+            <div class="swiper-slide box" id="review-${review._id}">
                 <i class="fas fa-quote-left"></i>
                 <i class="fas fa-quote-right"></i>
                 <img src="${review.reviewImage}" alt="Review Image">
@@ -104,11 +104,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>${review.reviewContent}</p>
                 <h3>${review.cafeName}</h3>
                 <span>${review.reviewerName}</span>
+                <button class="delete-btn" data-id="${review._id}">Delete</button> <!-- Add Delete Button -->
             </div>
         `;
-
+    
         const swiperWrapper = document.querySelector('.swiper-wrapper');
         swiperWrapper.insertAdjacentHTML('beforeend', reviewHTML);
-        swiper.update();
+    
+        // Attach delete button event listener
+        const deleteButton = document.querySelector(`#review-${review._id} .delete-btn`);
+        deleteButton.addEventListener('click', function () {
+            deleteReview(review._id);
+        });
+    
+        swiper.update(); // Update Swiper after adding the new review
     }
+
+    function deleteReview(reviewId) {
+        fetch(`http://localhost:5001/api/reviews/${reviewId}`, {
+            method: 'DELETE',
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete review');
+                }
+                // Remove the review from the DOM
+                const reviewElement = document.getElementById(`review-${reviewId}`);
+                if (reviewElement) {
+                    reviewElement.remove();
+                    swiper.update(); // Update Swiper after removing the slide
+                }
+            })
+            .catch((error) => {
+                console.error('Error deleting review:', error);
+                alert('Failed to delete review. Please try again.');
+            });
+    }
+
 });
+
+
+
