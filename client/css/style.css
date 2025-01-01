@@ -16,7 +16,7 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
+    text-transform: none;
     transition: all .2s linear;
 }
 
@@ -243,7 +243,7 @@ nav {
 
 .about .row .content p {
     color: var(--main-color);
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     line-height: 1.8;
     padding: 1rem 0;
 }
