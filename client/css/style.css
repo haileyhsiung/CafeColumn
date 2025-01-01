@@ -411,6 +411,34 @@ nav {
     background: var(--main-color);
 }
 
+
+/* review delete button*/
+
+.delete-btn {
+    position: absolute; 
+    top: 10px; 
+    right: 25px; 
+    background-color: #d7d2d2;
+    color: #675959; 
+    border: none; 
+    border-radius: 70%; 
+    width: 50px; 
+    height: 30px; 
+    cursor: pointer; 
+    font-size: 11px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.delete-btn:hover {
+    background-color: #e0e0e0; 
+    transform: scale(1.1); 
+}
+
+
 /* BOOK */
 .book {
     background: url(../image/book-bg.jpg);
