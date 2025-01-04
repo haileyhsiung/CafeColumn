@@ -23,8 +23,7 @@ const addReview = async (req, res) => {
             cafeName,
             reviewContent,
             reviewImage,
-            reviewRating, 
-            timestamp: new Date(),
+            reviewRating
         });
 
         await newReview.save();

@@ -6,7 +6,6 @@ const reviewSchema = new mongoose.Schema({
   reviewContent: { type: String, required: true },
   reviewImage: { type: String, required: true },
   reviewRating: { type: Number, required: true },
-  timestamp: { type: Date, required: true },
 });
 
 const Review = mongoose.model('Review', reviewSchema); //applies the schema to a model 

@@ -1,4 +1,6 @@
 //this file is the front end that connects to back end 
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Menu and Navbar Toggle
     let menu = document.querySelector('#menu-btn');
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => {
                     console.error('Error submitting review:', error);
-                    alert('Failed to submit review. Please try againHERE.');
+                    alert('Failed to submit review. Please try again.');
                 });
             };
             reader.readAsDataURL(reviewImage);
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Append Review Function
     function appendReview(review) {
         const starsHTML = Array.from({ length: review.reviewRating }, () => '<i class="fas fa-star"></i>').join('');
+        formattedDate = new Date().toLocaleDateString();
         const reviewHTML = `
             <div class="swiper-slide box" id="review-${review._id}">
                 <i class="fas fa-quote-left"></i>
@@ -104,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>${review.reviewContent}</p>
                 <h3>${review.cafeName}</h3>
                 <span>${review.reviewerName}</span>
+                <small>Reviewed on ${formattedDate}</small>
                 <button class="delete-btn" data-id="${review._id}">Delete</button> <!-- Add Delete Button -->
             </div>
         `;
