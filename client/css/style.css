@@ -67,16 +67,32 @@ section {
 .btn:hover {
     border-radius: var(--border-radius-hover);
     border: var(--border-hover);
+    transform: scale(1.1); /* 1.1 times bigger */
+    color: lightcoral;
 }
 
-/* Keep the nav bar styling normal */
+/* Nav bar styling normal */
 nav {
-    height: 60px; /* Adjust this according to your nav bar height */
+    height: 60px; /* Nav bar height */
     display: flex;
     align-items: center;
     position: relative;
     background-color: #c7a68f;
 }
+
+/* Styling inside the navbar */
+header .navbar a {
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 1.7rem;
+    transition: color 0.3s ease-in-out;
+}
+
+header .navbar a:hover {
+    transform: scale(1.1); /* 1.1 times bigger */
+    color: lightcoral;
+}
+
 
 /* Container for the logo to handle positioning */
 .logo-container {
@@ -97,6 +113,11 @@ nav {
     transform: translateY(-50%); /* Adjust to center the logo */
 }
 
+.resize-logo:hover {
+    transform: translateY(-60px); /* Moves the logo up by 60px */
+    transition: transform 0.2s ease-in-out; /* Smooth animation */
+    filter: sepia(0.5) hue-rotate(320deg) saturate(2) brightness(1.1); /*makes it a bit browner */
+}
 
 .header {
     position: fixed;
