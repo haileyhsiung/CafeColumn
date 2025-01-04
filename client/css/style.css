@@ -440,7 +440,14 @@ nav {
 
 
 /* review date*/
-
+.review-date {
+    position: absolute; /* Allows positioning within the parent container */
+    bottom: 10px; /* Positions it 10px from the bottom */
+    left: 20px; /* Positions it 10px from the left */
+    font-size: 0.9em; /* Adjust font size to make it consistent with the design */
+    color: rgb(130, 128, 128); /* Matches secondary text */
+    font-style: italic; /* Optional: Adds a subtle italic style */
+}
 
 /* BOOK */
 .book {
