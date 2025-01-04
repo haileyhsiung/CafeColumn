@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>${review.reviewContent}</p>
                 <h3>${review.cafeName}</h3>
                 <span>${review.reviewerName}</span>
-                <span class="review-date">On ${formattedDate}</span>
+                <span class="review-date">${formattedDate}</span>
 
                 <button class="delete-btn" data-id="${review._id}">Delete</button> <!-- Add Delete Button -->
             </div>
