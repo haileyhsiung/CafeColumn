@@ -14,18 +14,18 @@ require('dotenv').config();
 // use mongoose to connect to database 
 const MONGO_URI = process.env.MONGO_URI;
 
-// Connect to MongoDB
+// Connect node.js to MongoDB using mongoose library 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log('MongoDB Connected'); // This method fires if it connects
+    console.log('MongoDB Connected'); // This shows up in terminal if connected 
 
     // listen for requests only if database connection is successful
-    app.listen(PORT, () => {
+    app.listen(PORT, () => { // creates a server and uses http.createServer() under the hood using express
       console.log(`Listening on ${PORT}`);
     });
   })
   .catch((err) => {
-    console.error('MongoDB connection failed:', err); // Catches error if there is one
+    console.error('MongoDB connection failed:', err); // Catches error if it doesnt connect 
   });
 
 

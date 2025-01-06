@@ -4,9 +4,9 @@ const Review = require('../models/reviewModel');
 const getReviews = async (req, res) => {
     try {
         const reviews = await Review.find().sort({ timestamp: -1 }); //in order of most recent to oldest 
-        res.status(200).json(reviews);
+        res.status(200).json(reviews); //everything ok 
     } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch reviews' });
+        res.status(500).json({ error: 'Failed to fetch reviews' }); //internal server error 
     }
 };
 
@@ -15,7 +15,7 @@ const addReview = async (req, res) => {
     const { reviewerName, cafeName, reviewContent, reviewImage, reviewRating } = req.body;
     //provide immediate feedback to client and avoid unecessary interactions with database 
     if (!reviewerName || !cafeName || !reviewContent || !reviewImage || !reviewRating) {
-        return res.status(400).json({ error: 'All fields are required' });
+        return res.status(400).json({ error: 'All fields are required' }); //client side error, bad request
     }
     try {
         const newReview = new Review({
