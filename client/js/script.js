@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-    // Load existing reviews from MongoDB
+    // Load existing reviews from MongoDB, this is the get request 
     fetch('http://localhost:5001/api/reviews')
         .then(response => response.json())
         .then(data => {

@@ -8,10 +8,10 @@ const{addReview, getReviews, deleteReview} = require('../controllers/reviewContr
 
 //API ENDPOINTS
 
-//GETS request object and sends response object
+//GET route to get object and sends response object
 router.get('/', getReviews)
 
-// POST route to handle reviews
+// POST route to add new data
 router.post('/', addReview)
 
 //DELETE route to delete reviews 

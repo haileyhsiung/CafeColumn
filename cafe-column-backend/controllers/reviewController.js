@@ -1,16 +1,16 @@
 const Review = require('../models/reviewModel');
 
-// function to get reviews used in reviewRoutes
+// function to get all reviews from database, used in reviewRoutes
 const getReviews = async (req, res) => {
     try {
         const reviews = await Review.find().sort({ timestamp: -1 }); //in order of most recent to oldest 
-        res.status(200).json(reviews); //everything ok 
+        res.status(200).json(reviews); //sends the fetched reviews as a JSON response to the client with an HTTP status
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch reviews' }); //internal server error 
     }
 };
 
-// function to add review used in reviewRoutes
+// function to add review to database used in reviewRoutes
 const addReview = async (req, res) => {
     const { reviewerName, cafeName, reviewContent, reviewImage, reviewRating } = req.body;
     //provide immediate feedback to client and avoid unecessary interactions with database 
@@ -26,7 +26,7 @@ const addReview = async (req, res) => {
             reviewRating
         });
 
-        await newReview.save();
+        await newReview.save(); //saves document to database 
         res.status(200).json(newReview);
       } catch (error) {
         console.error(error);
@@ -34,7 +34,7 @@ const addReview = async (req, res) => {
       }
     };
 
-//function to delete reviews 
+//function to delete reviews from database, used in reviewRoutes
 const deleteReview = async (req, res) => {
     try {
         const reviewId = req.params.id;

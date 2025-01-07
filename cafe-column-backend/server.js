@@ -15,7 +15,7 @@ require('dotenv').config();
 const MONGO_URI = process.env.MONGO_URI;
 
 // Connect node.js to MongoDB using mongoose library 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) //get rid of deprecation warnings
   .then(() => {
     console.log('MongoDB Connected'); // This shows up in terminal if connected 
 
@@ -31,15 +31,15 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors()); //not necessary if front end and back end on the same port 
+app.use(express.json()); //Converts the incoming request's JSON payload into a JavaScript object and attaches data to req.body
 
 
 // Routes
 app.use('/api/reviews', reviewRoutes)
 
 
-// Serve static files (optional)
+// allows files in client folder to be accessed from browser, only needed if we use backend port for the front end 
 app.use(express.static(path.join(__dirname, 'client')));
 
 
